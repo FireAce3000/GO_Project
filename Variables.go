@@ -2,79 +2,73 @@ package main
 // comment
 import (
 	"fmt"
+	"math"
+	"math/rand"
+	"math/cmplx"
 )
+// create variables
+var (
+	ToBe   bool       = false
+	MaxInt uint64     = 1<<64 - 1
+	z      complex128 = cmplx.Sqrt(-5 + 12i)
+)
+
 // comment
 func main() {
-	fmt.Println("Hello World!")
+	fmt.Println("A Tour of Go")
 
-	var student1 string = "John" //type is string
-	var student2 = "Jane" //type is inferred
-	x := 2 //type is inferred
-	test := "asd"
+	// normal declaration
+	var i, j int = 1, 2
+	// declaration without var and with :=
+	k := 3
+	c, python, java := true, false, "no!"
+	fmt.Println(i, j, k, c, python, java)
+	// Output: 1 2 3 true false no!
 
-	fmt.Print(test)
-  
-	fmt.Println(student1)
-	fmt.Println(student2)
-	fmt.Println(x)
+	// math.Pi ausgeben
+	fmt.Println(math.Pi)
+	// Output: 3.141592653589793
 
-	// Multiple Variable Declaration
-	var a, b, c, d int = 1, 3, 5, 7
+	// math func random Number but max 50
+	fmt.Println("My favorite number is", rand.Intn(50))
+	// Output: 0 - 49
 
-	fmt.Println(a)
-	fmt.Println(b)
-	fmt.Println(c)
-	fmt.Println(d)
+	// function add
+	fmt.Println(add(42, 13))
+	// Output: 55
 
-	var e, f = 6, "Hello"
-  	g, h := 7, "World!"
+	// function swap
+	a, b := swap("hello", "world")
+	fmt.Println(a, b)
+	// Output: world hello
 
-  	fmt.Println(e)
-  	fmt.Println(f)
-  	fmt.Println(g)
-  	fmt.Println(h)
+	// function split
+	fmt.Println(split(17))
+	// Output: 7 10
 
-	var (
-		i int
-		j int = 1
-		k string = "hello"
-	)
-   
-	fmt.Println(i)
-	fmt.Println(j)
-	fmt.Println(k)
-
-	// Output with Print Function
-	var aa,ab string = "Hello","World"
-
-	fmt.Print(aa)
-	fmt.Print(ab)
-
-	fmt.Print(aa, "\n")
-	fmt.Print(ab, "\n")
-
-	fmt.Print(aa, "\n",ab)
-
-	fmt.Println(aa,ab)
-
-	var ac,ad = 10,20
-
-	fmt.Print(ac,ad)
-
-	var ae string = "Hello"
-	var af int = 15
-  
-	fmt.Printf("ae has value: %v and type: %T\n", ae, ae)
-	fmt.Printf("af has value: %v and type: %T", af, af)
-
-	// DataTypes
-	var ba bool = true     // Boolean
-	var bb int = 5         // Integer
-	var bc float32 = 3.14  // Floating point number
-	var bd string = "Hi!"  // String
-  
-	fmt.Println("Boolean: ", ba)
-	fmt.Println("Integer: ", bb)
-	fmt.Println("Float:   ", bc)
-	fmt.Println("String:  ", bd)
+	// fmt.Printf - Output with values
+	fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
+	fmt.Printf("Type: %T Value: %v\n", MaxInt, MaxInt)
+	fmt.Printf("Type: %T Value: %v\n", z, z)
+	// Output: Type: bool Value: false
+	// Output:Type: uint64 Value: 18446744073709551615
+	// Output:Type: complex128 Value: (2+3i)
 }
+
+// create function to example
+func add(x int, y int) int { // int after the brackets, is the return value
+	// return value
+	return x + y
+}
+
+// create function to switch the words
+func swap(x, y string) (string, string) {
+	return y, x
+}
+
+// create function to return x and y
+func split(sum int) (x, y int) { 	// func split (sum int) (int, int) {}
+	x = sum * 4 / 9					// var x = sum * 4 / 9
+	y = sum - x						// var y = sum - x
+	return							// return x, y
+}									// }
