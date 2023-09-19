@@ -2,9 +2,10 @@ package main
 // comment
 import (
 	"fmt"
-	"math"
-	"math/rand"
-	"math/cmplx"
+	"math" // math package
+	"math/rand" // random
+	"math/cmplx" // complex math (sqrt)
+	"time" // timepackage
 )
 // create variables
 var (
@@ -16,6 +17,11 @@ var (
 // comment
 func main() {
 	fmt.Println("A Tour of Go")
+
+	// time 
+	var today = time.Now()
+	fmt.Println(today)
+	// Output: 2023-09-19 12:32:01.470252403 +0000 UTC m=+0.000031059
 
 	// normal declaration
 	var i, j int = 1, 2
@@ -53,6 +59,63 @@ func main() {
 	// Output: Type: bool Value: false
 	// Output:Type: uint64 Value: 18446744073709551615
 	// Output:Type: complex128 Value: (2+3i)
+
+	// for loop
+	sum := 1						// var erstellen
+	for i := sum; i < 1000; i++ {		// for erstellen with components by ;
+		sum += sum					// what is to do
+		}
+	fmt.Println(sum)
+	// Output: 1024
+
+	// while = for
+	sum1 := 1
+	for sum1 < 1000 {
+		sum1 += sum1
+	}
+	fmt.Println(sum1)
+	// Output: 1024
+
+	// if LIKE for
+	x := 5
+	if x > 0 {
+		fmt.Println("x is bigger than 0")
+	} else {
+		fmt.Println("x is smaller than 0")
+	}
+	// Output: x is bigger than 0
+
+	// switch
+	var join int = 1
+	switch join {
+	case 1: fmt.Print("case1")
+	case 2: fmt.Print("case2")
+	default: fmt.Print("casedefault")
+	}
+	// Output: case1
+
+	// switch without condition - switch true
+	t := time.Now() 
+	switch { 								// empty condition
+	case t.Hour() < 12:						// example 
+		fmt.Println("Good morning!")
+	case t.Hour() < 17:
+		fmt.Println("Good afternoon.")
+	default:
+		fmt.Println("Good evening.")
+	}
+
+	// defer - "führt den Befehl erst aus, wenn der Befehl schon mal ausgeführt wurde"
+	defer fmt.Println("world")
+	fmt.Println("hello")
+	// Output: hello world
+
+	// defer stack
+	for i := 0; i < 10; i++ {
+		defer fmt.Print(i)
+	}
+	fmt.Print("done ")
+	// Output: done 9 8 7 6 5 4 3 2 1 0
 }
 
 // create function to example
