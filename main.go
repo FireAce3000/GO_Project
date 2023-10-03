@@ -6,7 +6,10 @@ import (
 	"math/rand" // random
 	"math/cmplx" // complex math (sqrt)
 	"time" // timepackage
+	"GO_Project/models" // myPackage
 )
+
+
 // create variables
 var (
 	ToBe   bool       = false
@@ -17,6 +20,9 @@ var (
 // comment
 func main() {
 	fmt.Println("A Tour of Go")
+
+
+	Ausgabe("Max")	
 
 	// time 
 	var today = time.Now()

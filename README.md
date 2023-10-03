@@ -4,4 +4,4 @@
 ### .) add GO (for, while, if/else, switch, defer)
 ### .) add GO (ein paar Übungen hinzugefügt)
 
-
+### .) update struct (is in work)
